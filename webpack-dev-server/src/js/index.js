@@ -1,5 +1,10 @@
 import '../css/index.css'
+import  text from './module.js'
 
-console.log("hello word - home")
+text()
 
-document.body.innerHTML = '<p>hello word - injecting css</p>'
+if(module.hot) {
+  module.hot.accept('./module.js', function() {
+    text()
+  })
+}

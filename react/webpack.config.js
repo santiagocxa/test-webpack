@@ -19,6 +19,11 @@ module.exports = {
   module:{
     rules: [
       {
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.css$/,
         use: [
           'style-loader',
@@ -30,7 +35,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Plugins'
+      title: 'Plugins',
+      template: path.resolve(__dirname,'index.html')
     })
   ]
 }
